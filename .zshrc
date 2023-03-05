@@ -26,6 +26,7 @@ ZSH_THEME="intheloop"
 plugins=(
     git
     zsh-autosuggestions
+    zsh-syntax-highlighting
     z
     fzf-zsh-plugin
 )

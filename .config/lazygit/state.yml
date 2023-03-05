@@ -1,9 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/yurii/Documents/LazyVim-config
+- /home/yurii/Documents/Dotfiles
 - /home/yurii/PycharmProjects/pythonProject/platform
 - /home/yurii/test
-- /home/yurii/.local/share/nvim/site/pack/packer/opt/telescope.nvim
 - /home/yurii/.local/share/Trash/230126-162259/nvim
 startuppopupversion: 5
 customcommandshistory:
