@@ -1,20 +1,15 @@
--- local tree_cb = require("nvim-tree.config").nvim_tree_callback
-local WIDTH_RATIO = 0.3 -- You can change this too
-
 return {
   {
     "nvim-tree/nvim-tree.lua",
+    commit = "8b8d457",
     requires = { { "nvim-tree/nvim-web-devicons" } },
     opts = {
+      sync_root_with_cwd = true,
       view = {
-        side = "right",
-        width = function()
-          return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-        end,
+        adaptive_size = true,
         mappings = {
           list = {
             { key = { "L" }, action = "cd" },
-
             { key = { "l", "<CR>", "<2-LeftMouse>" }, action = "edit" },
             { key = "<C-s>", action = "split" },
             { key = "<C-v>", action = "vsplit" },
@@ -35,9 +30,69 @@ return {
               action = "copy_absolute_path",
             },
             { key = "H", action = "dir_up" },
-            { key = "s", action = "system_open" },
+            { key = "s", action = "" },
             { key = "q", action = "close" },
           },
+        },
+      },
+      renderer = {
+        full_name = true,
+        group_empty = true,
+        special_files = {},
+        symlink_destination = false,
+        indent_markers = {
+          enable = true,
+        },
+        icons = {
+          git_placement = "signcolumn",
+          show = {
+            file = true,
+            folder = false,
+            folder_arrow = true,
+            git = true,
+          },
+        },
+      },
+      update_focused_file = {
+        enable = true,
+        update_root = true,
+        ignore_list = { "help" },
+      },
+      diagnostics = {
+        enable = true,
+        show_on_dirs = false,
+      },
+      filters = {
+        custom = {
+          "^.git$",
+        },
+      },
+      actions = {
+        change_dir = {
+          enable = false,
+          restrict_above_cwd = true,
+        },
+        open_file = {
+          resize_window = true,
+          window_picker = {
+            chars = "aoeui",
+          },
+        },
+        remove_file = {
+          close_window = false,
+        },
+      },
+      log = {
+        enable = false,
+        truncate = true,
+        types = {
+          all = false,
+          config = false,
+          copy_paste = false,
+          diagnostics = false,
+          git = false,
+          profile = false,
+          watcher = false,
         },
       },
     },

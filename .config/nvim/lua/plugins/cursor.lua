@@ -4,10 +4,10 @@ return {
     config = function()
       require("modes").setup({
         -- Set opacity for cursorline and number background
-        line_opacity = 0.35,
+        line_opacity = 0.30,
 
         -- Enable cursor highlights
-        set_cursor = true,
+        set_cursor = false,
 
         -- Enable cursorline initially, and disable cursorline for inactive windows
         -- or ignored filetypes

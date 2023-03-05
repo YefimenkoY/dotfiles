@@ -4,8 +4,24 @@
 
 local opt = vim.opt
 
+vim.scriptencoding = "utf-8"
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+
+opt.autoindent = true
+opt.smartindent = true
+opt.hlsearch = true
+opt.backup = false
+opt.showcmd = true
+opt.cmdheight = 1
+opt.laststatus = 2
+opt.expandtab = true
+opt.inccommand = "split"
+opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
+opt.smarttab = true
+opt.breakindent = true
+
 opt.cursorline = true -- Enable highlighting of the current line
-opt.expandtab = true -- Use spaces instead of tabs
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
@@ -16,12 +32,13 @@ opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 12 -- Lines of context
 opt.shiftwidth = 4 -- Size of an indent
-opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "en" }
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.guicursor = ""
+opt.swapfile = false
+opt.termguicolors = true
 
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 
--- opt.background = 'light'
+-- opt.background = "light"
