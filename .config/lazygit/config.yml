@@ -1,11 +1,22 @@
 gui:
+  windowSize: 'full'
   sidePanelWidth: 0.2 # gives you more space to show things side-by-side
+  scrollHeight: 5
   mainPanelSplitMode: 'horizontal'
   showIcons: true
   commandLogSize: 6
   showBottomLine: false
   mainPanelSplitMode: 'vertical'
+  showFileTree: false
+  diffContextSize: 5
+  theme:
+    activeBorderColor:
+      - '#F6AE2D'
+      - bold
+    selectedLineBgColor:
+      - '#F6AE2D'
 git:
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta 

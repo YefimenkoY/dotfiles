@@ -1,4 +1,4 @@
-lastupdatecheck: 0
+lastupdatecheck: 1676097857
 recentrepos:
 - /home/yurii/Documents/Dotfiles
 - /home/yurii/PycharmProjects/pythonProject/platform
@@ -8,4 +8,4 @@ startuppopupversion: 5
 customcommandshistory:
 - :q
 - q
-hidecommandlog: false
+hidecommandlog: true
