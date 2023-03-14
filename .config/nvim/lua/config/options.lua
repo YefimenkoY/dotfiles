@@ -17,7 +17,6 @@ opt.cmdheight = 1
 opt.laststatus = 2
 opt.expandtab = true
 opt.inccommand = "split"
-opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
 opt.smarttab = true
 opt.breakindent = true
 
@@ -26,12 +25,15 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.mouse = "a" -- Enable mouse mode
+opt.termguicolors = true
+opt.winminwidth = 10
 opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 12 -- Lines of context
-opt.shiftwidth = 4 -- Size of an indent
+opt.scrolloff = 1 -- Lines of context
+opt.colorcolumn = "80"
+opt.shiftwidth = 2 -- Size of an indent
 opt.spelllang = { "en" }
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
@@ -40,5 +42,7 @@ opt.swapfile = false
 opt.termguicolors = true
 
 opt.wildmode = "longest:full,full" -- Command-line completion mode
+vim.g.smoothie_enabled = true
+vim.g.gitblame_message_template = "<author> • <date>"
 
 -- opt.background = "light"

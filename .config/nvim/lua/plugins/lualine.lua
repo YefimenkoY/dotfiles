@@ -1,3 +1,6 @@
+local git_blame = require("gitblame")
+vim.g.gitblame_display_virtual_text = 0 -- Disable virtual text
+
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -31,16 +34,12 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { require("pomodoro").statusline },
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
           -- stylua: ignore
-          {
-            function() return require("nvim-navic").get_location() end,
-            cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-          },
         },
         lualine_x = {
+          { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
           -- stylua: ignore
           {
             function() return require("noice").api.status.command.get() end,
@@ -64,6 +63,7 @@ return {
           },
         },
         lualine_y = {
+          { require("pomodoro").statusline },
           { "progress", separator = " ", padding = { left = 1, right = 0 } },
           { "location", padding = { left = 0, right = 1 } },
         },
