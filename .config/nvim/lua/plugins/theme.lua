@@ -5,7 +5,7 @@ return {
       require("gruvbox").setup({
         contrast = "hard", -- can be "hard", "soft" or empty string
         -- invert_tabline = true,
-        transparent_mode = false,
+        transparent_mode = true,
       })
     end,
   },

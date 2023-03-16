@@ -2,9 +2,6 @@
 	name = yuriiy
 	email = yuriiy@madgicx.com
 
-; [commit]
-;     gpgSign = true
-
 [credential]
     helper = cache --timeout 3600
 

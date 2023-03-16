@@ -8,4 +8,5 @@ startuppopupversion: 5
 customcommandshistory:
 - :q
 - q
+- ""
 hidecommandlog: true
