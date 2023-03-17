@@ -3,17 +3,31 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export TERM="xterm-256color"                      # getting proper colors
+export EDITOR='nvim'
+export TERMINAL='alacritty'
+export BROWSER='firefox'
+export ZDOTDIR=$HOME/zsh
+export NODE_OPTIONS=--max_old_space_size=4096
+
+
+# vi mode
+bindkey -v
+bindkey "^F" vi-cmd-mode
+bindkey "^R" history-incremental-search-backward
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="intheloop"
 
 plugins=(
     git
     zsh-autosuggestions
-    zsh-syntax-highlighting
+    z
+    fzf-zsh-plugin
 )
 
 # Set list of themes to pick from when loading at random
@@ -76,9 +90,9 @@ plugins=(
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.profile
 
 # User configuration
 
@@ -94,9 +108,22 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-alias vin="vim"
+alias vi="nvim"
+
+# Changing "ls" to "exa"
+alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias f='vifm'
+
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -106,13 +133,19 @@ alias vin="vim"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
  #plugins=( [plugins...] zsh-history-substring-search)
-export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain madgicx --domain-owner 613378266703 --query authorizationToken --output text)
-alias nvimm="/usr/local/bin/nvim"
+# export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain madgicx --domain-owner 613378266703 --query authorizationToken --output text)
+alias nvim="/usr/bin/nvim"
 alias t="tmux"
+alias cls='clear'
 
-antigen bundle zsh-users/zsh-autosuggestions
 
-#export NVM_DIR="$HOME/.config/nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#source ~/powerlevel10k/powerlevel10k.zsh-theme
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export DOCKER_UID=$UID
+export DOCKER_GID=$(getent group "$USER" | cut -d: -f3)
+
+source /home/yurii/.config/broot/launcher/bash/br
+eval "$(starship init zsh)"
+
