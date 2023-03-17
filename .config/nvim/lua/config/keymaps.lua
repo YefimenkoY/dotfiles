@@ -32,10 +32,15 @@ map("n", "<C-d>", '<cmd>call smoothie#do("<C-D>zz")<cr>')
 map("n", "<C-u>", '<cmd>call smoothie#do("<C-U>zz")<cr>')
 map("n", "n", '<cmd>call smoothie#do("nzzzv")<cr>')
 map("n", "N", '<cmd>call smoothie#do("Nzzzv")<cr>')
+map("n", "G", "Gzz")
 
 -- Lazygit
 map("n", "<leader>gg", function()
-  Util.float_term({ "lazygit" }, { size = { width = 0.98, height = 0.98 }, cwd = Util.get_root() })
+  Util.float_term({ "lazygit" }, {
+    size = { width = 0.97, height = 0.97 },
+    style = "minimal",
+    cwd = Util.get_root(),
+  })
 end, { desc = "Lazygit" })
 
 -- go to preview

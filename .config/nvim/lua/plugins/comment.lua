@@ -4,7 +4,7 @@ return {
     config = function()
       require("mini.comment").setup({
         mappings = {
-          comment = "//",
+          comment = "<C-c>",
         },
       })
     end,
